@@ -1,0 +1,44 @@
+/* home.css */
+
+.home-page {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(to bottom right, #e8f0ff, #ffffff);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.brand {
+  color: #007bff;
+}
+
+.button-group button {
+  font-size: 16px;
+  padding: 12px;
+  transition: transform 0.2s;
+}
+
+.button-group button:hover {
+  transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

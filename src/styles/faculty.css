@@ -1,0 +1,459 @@
+/*
+ * FACULTY DASHBOARD STYLES (Modern & User-Friendly)
+ *
+ * This CSS is tailored to the JSX structure, providing:
+ * 1. A clean, neumorphism-inspired card design.
+ * 2. Clear visual hierarchy for faculties and their subjects.
+ * 3. Distinct, responsive styles for Add/Edit forms.
+ * 4. Custom colors and transitions for all action buttons (Edit, Save, Delete, Cancel).
+*/
+
+/* --- Global & Container --- */
+body {
+    background-color: #f7f9fc; /* Light background for the whole page */
+    margin: 0;
+    padding: 0;
+}
+
+.faculty-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px;
+    background: #ffffff; /* Clean white background */
+    border-radius: 20px;
+    /* Soft, deep shadow for a 'lifted' look */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #333;
+}
+
+/* --- Header --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ebf2f6; /* Subtle separator line */
+}
+
+.dashboard-header h1 {
+    color: #1e272c;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.back-button {
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #4b6584, #2c3e50); /* Steel Blue Gradient */
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+    background: linear-gradient(45deg, #2c3e50, #1e272c);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Forms (Add/Filter) --- */
+.faculty-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 30px; /* Reduced margin slightly to group forms */
+    align-items: center;
+    padding: 20px;
+    background-color: #f7f9fb;
+    border-radius: 16px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05); /* Subtle inset for form area */
+}
+
+/* Base Input/Select Styles */
+.faculty-form input[type="text"],
+.faculty-form input[type="number"],
+.faculty-form select {
+    flex: 1 1 200px; /* Responsive flex basis */
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid #e1e4e8;
+    font-size: 16px;
+    background: #fff;
+    color: #555;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.faculty-form input:focus,
+.faculty-form select:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 0 4px rgba(41, 128, 185, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    outline: none;
+}
+
+/* Checkbox Labels */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #4b6584;
+    white-space: nowrap;
+    user-select: none;
+    min-width: fit-content;
+}
+
+.checkbox-label input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3498db;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.checkbox-label input[type="checkbox"]:checked::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Weight Input Group */
+.weight-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.weight-input label {
+    font-weight: 600;
+    color: #4b6584;
+}
+
+.weight-input input[type="number"] {
+    flex: 0 0 80px; /* Fixed width for the number input */
+    padding: 10px; /* Smaller padding for number input */
+    text-align: center;
+}
+
+/* Primary Button (Add/Save) */
+.faculty-form button:not(.cancel-btn, .delete-btn, .edit-btn) {
+    padding: 14px 30px;
+    background: linear-gradient(45deg, #2ecc71, #27ae60); /* Green/Teal for ADD actions */
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+}
+
+.faculty-form button:not(.cancel-btn, .delete-btn, .edit-btn):hover {
+    background: linear-gradient(45deg, #27ae60, #16a085);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(46, 204, 113, 0.4);
+}
+
+/* --- Faculty Cards --- */
+.faculty-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #f0f2f5;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.03);
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.faculty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Faculty Header/Title Bar */
+.faculty-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.faculty-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faculty-title h3 {
+    color: #1e272c;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.faculty-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* --- Subject Tags & List --- */
+.subjects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 5px;
+}
+
+.no-subjects {
+    color: #888;
+    font-style: italic;
+    padding: 5px 10px;
+}
+
+.subject-tag {
+    /* The subject tag is now a container for content and actions, not just text */
+    display: flex;
+    align-items: center;
+    background-color: #f0f4f8; /* Light blue background for visual grouping */
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #34495e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    border: 1px solid #e6ecf1;
+}
+
+.subject-tag:hover {
+    background-color: #e5edf5;
+}
+
+.subject-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.subject-info {
+    color: #34495e;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.subject-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* --- Button Styles (Edit/Delete/Save/Cancel) --- */
+
+/* Edit Button */
+.edit-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    background: linear-gradient(45deg, #f39c12, #e67e22); /* Orange/Yellow for Edit */
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+    background: linear-gradient(45deg, #e67e22, #d35400);
+    transform: translateY(-1px);
+}
+
+/* Delete Button */
+.delete-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    background: linear-gradient(45deg, #e74c3c, #c0392b); /* Red for Delete */
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: linear-gradient(45deg, #c0392b, #922b21);
+    transform: translateY(-1px);
+}
+
+/* Save Button (Used in Edit Forms) */
+.save-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    background: linear-gradient(45deg, #3498db, #2980b9); /* Primary Blue for Save */
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.save-btn:hover {
+    background: linear-gradient(45deg, #2980b9, #1f648d);
+    transform: translateY(-1px);
+}
+
+/* Cancel Button (Used in Edit Forms) */
+.cancel-btn {
+    padding: 8px 16px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #ecf0f1; /* Light Gray for Cancel */
+    color: #2c3e50;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #d3dbde;
+}
+
+/* --- Edit Form Overrides (Faculty) --- */
+.edit-form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.edit-input {
+    flex: 1;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+/* --- Edit Form Overrides (Subject) --- */
+.subject-edit-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0;
+    width: 100%;
+    align-items: center;
+}
+
+.subject-edit-form .edit-input,
+.subject-edit-form select,
+.subject-edit-form .weight-input {
+    flex: 1 1 150px; /* Allow items to wrap nicely */
+    margin: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.subject-edit-form .weight-input input {
+    padding: 8px 12px;
+}
+
+.subject-edit-form .checkbox-label {
+    flex-basis: auto;
+    font-size: 14px;
+}
+
+.subject-edit-form .form-actions {
+    flex-basis: 100%; /* Force action buttons to a new line */
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .faculty-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .faculty-form {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .faculty-form input,
+    .faculty-form select,
+    .faculty-form button:not(.cancel-btn, .delete-btn, .edit-btn) {
+        width: 100%;
+        flex-basis: auto;
+    }
+    
+    .weight-input {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .faculty-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .subject-tag {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .subject-content {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .subject-edit-form {
+        flex-direction: column;
+    }
+    .subject-edit-form .edit-input, 
+    .subject-edit-form select, 
+    .subject-edit-form .weight-input, 
+    .subject-edit-form .checkbox-label {
+        width: 100%;
+    }
+}

@@ -1,0 +1,78 @@
+/* adminlogin.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('/public/login_bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.container {
+  background-color: rgba(0, 0, 50, 0.8); /* Darker transparent background for better contrast */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); /* Softer shadow */
+  margin-top: 300px;
+  color: #f0e68c; /* Softer, eye-catching light yellow */
+  backdrop-filter: blur(5px);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ffde59; /* Bright yellow for the heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Slight shadow for depth */
+  font-size: 28px; /* Larger size */
+}
+
+.form-group label {
+  color: #ffffff; /* Sharp white for labels */
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase for more emphasis */
+}
+
+.form-control {
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter transparency */
+  border: 1px solid #ffde59; /* Bright border */
+  border-radius: 5px; /* Rounded corners for input fields */
+  color: #ffffff; /* Keeping the input text white */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.form-control::placeholder {
+  color: #ccc; /* Placeholder remains the same */
+}
+
+.form-control:focus {
+  background-color: rgba(255, 255, 255, 0.4); /* Change bg on focus */
+  outline: none; /* No outline */
+  border-color: #0051ff; /* Blue outline on focus */
+}
+
+.btn-primary {
+  background-color: #0051ff; /* Original button color */
+  border: none;
+  font-weight: bold;
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Added padding */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.btn-primary:hover {
+  background-color: #003bb3; /* Darker on hover */
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+@media (max-width: 576px) {
+  .container {
+    margin-top: 50px;
+    padding: 20px;
+  }
+}

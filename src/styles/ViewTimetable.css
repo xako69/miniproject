@@ -1,0 +1,13 @@
+.timetable {
+  background: white;
+  text-align: center;
+}
+
+.timetable th {
+  background: #007bff;
+  color: white;
+}
+
+.timetable td {
+  vertical-align: middle;
+}

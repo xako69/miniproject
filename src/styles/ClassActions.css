@@ -1,0 +1,18 @@
+.class-actions-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.class-actions-container h2 {
+  margin-bottom: 20px;
+}
+
+.class-actions-container button {
+  width: 100%;
+  margin-bottom: 10px;
+}
